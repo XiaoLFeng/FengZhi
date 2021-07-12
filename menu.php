@@ -74,7 +74,7 @@ function listOn($listO) {
                 <a href="../Chemistry/equation_organic.php">
                     <li class="mdui-list-item mdui-ripple <?php listOn(202) ?>">化学方程式（有机）</li>
                 </a>
-                <a href="../Chemistry/equation_organic.php">
+                <a href="../Chemistry/experimental_equipment.php">
                     <li class="mdui-list-item mdui-ripple <?php listOn(203) ?>">化学仪器</li>
                 </a>
             </ul>
