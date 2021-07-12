@@ -30,7 +30,7 @@ function listOn($listO) {
     }
 }
 ?>
-<div class="mdui-drawer mdui-shadow-3" id="menu">
+<div class="mdui-drawer mdui-shadow-3 <?PHP if ($listfor == 1) {echo "mdui-drawer-close";}?>" id="menu">
     <ul class="mdui-list" mdui-collapse="{Behavior: true}">
         <a href="../index.php">
             <li class="mdui-list-item mdui-ripple">
@@ -73,6 +73,9 @@ function listOn($listO) {
                 </a>
                 <a href="../Chemistry/equation_organic.php">
                     <li class="mdui-list-item mdui-ripple <?php listOn(202) ?>">化学方程式（有机）</li>
+                </a>
+                <a href="../Chemistry/equation_organic.php">
+                    <li class="mdui-list-item mdui-ripple <?php listOn(203) ?>">化学仪器</li>
                 </a>
             </ul>
         </li>
