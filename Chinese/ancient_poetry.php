@@ -67,7 +67,7 @@ if ($ap == NULL) {
 <div class="mdui-container">
     <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
         <div class="mdui-typo mdui-center">
-            <p>请在下方选择你需要的项目</p>
+            <p>如果较难查找可以按下 "CTrl+F" 以打开查询功能</p>
         </div>
     </div>
 </div>
@@ -78,7 +78,7 @@ if ($ap == NULL) {
                 <tr>
                     <th>名字</th>
                     <th>作者</th>
-                    <th>朝代</th>
+                    <th>学习时期</th>
                     <th>进入</th>
                 </tr>
             </thead>
@@ -99,7 +99,7 @@ if ($ap == NULL) {
             ?>
             <td><strong><?PHP echo "《".$str."》"; ?></strong></td>
             <td><?PHP $a=file('./ancient_poetry/'.$str.'.md');$strs = str_replace('#### 作者: ','',$a[2]);echo $strs?></td>
-            <td><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 朝代: ','',$b[4]);echo $strss?></td>
+            <td><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 学习时期: ','',$b[6]);echo $strss?></td>
             <td><a href="?ap=<?PHP echo $str ?>"><button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple">查阅</button></a></td>
         </tr>
     <?PHP
