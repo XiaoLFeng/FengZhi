@@ -74,7 +74,7 @@ $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");
                     <tr>
                         <th>#</th>
                         <th>名字</th>
-                        <th>使用方法</th>
+                        <th class="mdui-hidden-sm-down">使用方法</th>
                         <th>查阅</th>
                     </tr>
                 </thead>
@@ -87,12 +87,12 @@ $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");
                     <tr>
                         <td><?PHP echo $List->id?></td>
                         <td><?PHP echo $List->name?></td>
-                        <td><?PHP echo $List->info?></td>
+                        <td class="mdui-hidden-sm-down"><?PHP echo $List->info?></td>
                         <td>  <button class="mdui-btn mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#info-<?PHP echo $x?>'}">详细信息</button></td>
                     </tr>
                     <div class="mdui-dialog" id="info-<?PHP echo $x?>">
                         <div class="mdui-dialog-title"><?PHP echo $List->name?></div>
-                        <div class="mdui-dialog-content">使用方法：<?PHP echo $List->info?><br/>注意事项：<?PHP if($List->warning == NULL or $List->warning == "无"){echo "暂无该内容";}else{echo $List->warning;}?></div>
+                        <div class="mdui-dialog-content"><strong>使用方法：</strong><?PHP echo $List->info?><br/><strong>注意事项：</strong><?PHP if($List->warning == NULL or $List->warning == "无"){echo "暂无该内容";}else{echo $List->warning;}?><br/><img src="<?PHP echo $setting["Info"]["jsdelivr"]."/Chemistry/器具/".$List->name.".jpg" ?>" alt=""></div>
                         <div class="mdui-dialog-actions">
                             <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
                         </div>

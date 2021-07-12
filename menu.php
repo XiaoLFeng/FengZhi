@@ -44,8 +44,8 @@ function listOn($listO) {
                 <div class="mdui-list-item-content <?php check(2) ?>">简介</div>
             </li>
         </a>
-        <!-- 化学 -->
-        <li class="mdui-collapse-item">
+        <!-- 语文 -->
+        <li class="mdui-collapse-item <?PHP if($listOnL == 1){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(1) ?>">book</i>
                 <div class="mdui-list-item-content <?php listOnL(1) ?>">语文库</div>
@@ -61,7 +61,7 @@ function listOn($listO) {
             </ul>
         </li>
         <!-- 化学 -->
-        <li class="mdui-collapse-item">
+        <li class="mdui-collapse-item <?PHP if($listOnL == 2){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(2) ?>">bubble_chart</i>
                 <div class="mdui-list-item-content <?php listOnL(2) ?>">化学库</div>
