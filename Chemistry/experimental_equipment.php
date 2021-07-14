@@ -6,6 +6,8 @@ error_reporting(0);
 // 引入设置
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
+// 引入插件
+include("../plugins/night.php");  //引入夜间模式插件
 $listOnL = 2;
 $listOn = 203;
 // 导入数据库
@@ -36,19 +38,9 @@ $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");
         crossorigin="anonymous"
     />
 </head>
-<body class="mdui-theme-primary-<?php echo $setting["Web"]["color"] ?> mdui-theme-accent-<?php echo $setting["Web"]["subcolor"] ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left">
+<body class="mdui-theme-primary-<?php echo check_night_time_primary() ?> mdui-theme-accent-<?php echo check_night_time_accent() ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left <?PHP echo check_night_black() ?>">
 <!-- 顶部TAB -->
-<header>
-<div class="mdui-appbar mdui-appbar-fixed">
-    <div class="mdui-toolbar mdui-color-theme mdui-shadow-2 mdui-appbar-inset">
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#menu'}" mdui-tooltip="{content: '菜单'}"><i class="mdui-icon material-icons">menu</i></a>
-        <a href="javascript:;" class="mdui-typo-title"><?php echo $setting["Info"]["name"] ?></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '刷新'}"><i class="mdui-icon material-icons">refresh</i></a>
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">more_vert</i></a>
-    </div>
-</div>
-</header>
+<?PHP include_once('../header.php'); ?>
 <!-- 菜单 -->
 <?PHP include_once('../menu.php'); ?>
 <!-- 正文 -->
@@ -69,13 +61,13 @@ $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");
 <div class="mdui-container mdui-valign mdui-typo">
     <div class="mdui-container mdui-m-y-4">
         <div class="mdui-table-fluid">
-            <table class="mdui-table mdui-table-hoverable">
+            <table class="mdui-table mdui-table-hoverable <?PHP check_night_bkg() ?>">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>名字</th>
-                        <th class="mdui-hidden-sm-down">使用方法</th>
-                        <th>查阅</th>
+                        <th class="<?PHP check_night_write() ?>">#</th>
+                        <th class="<?PHP check_night_write() ?>">名字</th>
+                        <th class="mdui-hidden-sm-down <?PHP check_night_write() ?>">使用方法</th>
+                        <th class="<?PHP check_night_write() ?>">查阅</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,14 +77,14 @@ $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");
                     while ($List = mysqli_fetch_object($SQL)) {
                     ?>
                     <tr>
-                        <td><?PHP echo $List->id?></td>
-                        <td><?PHP echo $List->name?></td>
-                        <td class="mdui-hidden-sm-down"><?PHP echo $List->info?></td>
-                        <td>  <button class="mdui-btn mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#info-<?PHP echo $x?>'}">详细信息</button></td>
+                        <td class="<?PHP check_night_write() ?>"><?PHP echo $List->id?></td>
+                        <td class="<?PHP check_night_write() ?>"><?PHP echo $List->name?></td>
+                        <td class="mdui-hidden-sm-down <?PHP check_night_write() ?>"><?PHP echo $List->info?></td>
+                        <td class="<?PHP check_night_write() ?>">  <button class="mdui-btn mdui-color-theme-accent mdui-ripple" mdui-dialog="{target: '#info-<?PHP echo $x?>'}">详细信息</button></td>
                     </tr>
-                    <div class="mdui-dialog" id="info-<?PHP echo $x?>">
+                    <div class="mdui-dialog <?PHP check_night_bkg() ?>" id="info-<?PHP echo $x?>">
                         <div class="mdui-dialog-title"><?PHP echo $List->name?></div>
-                        <div class="mdui-dialog-content"><strong>使用方法：</strong><?PHP echo $List->info?><br/><strong>注意事项：</strong><?PHP if($List->warning == NULL or $List->warning == "无"){echo "暂无该内容";}else{echo $List->warning;}?><br/><img src="<?PHP echo $setting["Info"]["jsdelivr"]."/Chemistry/器具/".$List->name.".jpg" ?>" alt=""></div>
+                        <div class="mdui-dialog-content <?PHP check_night_write() ?>"><strong>使用方法：</strong><?PHP echo $List->info?><br/><strong>注意事项：</strong><?PHP if($List->warning == NULL or $List->warning == "无"){echo "暂无该内容";}else{echo $List->warning;}?><br/><img src="<?PHP echo $setting["Info"]["jsdelivr"]."/Chemistry/器具/".$List->name.".jpg" ?>" alt=""></div>
                         <div class="mdui-dialog-actions">
                             <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
                         </div>

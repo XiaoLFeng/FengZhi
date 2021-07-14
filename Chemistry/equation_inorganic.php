@@ -6,6 +6,8 @@ error_reporting(0);
 // 引入设置
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
+// 引入插件
+include("../plugins/night.php");  //引入夜间模式插件
 $listOnL = 2;
 $listOn = 201;
 // 导入数据库
@@ -36,19 +38,9 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
         crossorigin="anonymous"
     />
 </head>
-<body class="mdui-theme-primary-<?php echo $setting["Web"]["color"] ?> mdui-theme-accent-<?php echo $setting["Web"]["subcolor"] ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left">
+<body class="mdui-theme-primary-<?php echo check_night_time_primary() ?> mdui-theme-accent-<?php echo check_night_time_accent() ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left <?PHP echo check_night_black() ?>">
 <!-- 顶部TAB -->
-<header>
-<div class="mdui-appbar mdui-appbar-fixed">
-    <div class="mdui-toolbar mdui-color-theme mdui-shadow-2 mdui-appbar-inset">
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#menu'}" mdui-tooltip="{content: '菜单'}"><i class="mdui-icon material-icons">menu</i></a>
-        <a href="javascript:;" class="mdui-typo-title"><?php echo $setting["Info"]["name"] ?></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '刷新'}"><i class="mdui-icon material-icons">refresh</i></a>
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">more_vert</i></a>
-    </div>
-</div>
-</header>
+<?PHP include_once('../header.php'); ?>
 <!-- 菜单 -->
 <?PHP include_once('../menu.php'); ?>
 <!-- 正文 -->
@@ -73,7 +65,7 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
             <?PHP
             while ($List = mysqli_fetch_object($SQL)) {
             ?>
-            <div class="mdui-panel-item">
+            <div class="mdui-panel-item <?PHP check_night_bkg() ?>">
                 <div class="mdui-panel-item-header">
                     <div class="mdui-panel-item-title"><?PHP echo $List->equation?></div>
                     <div class="mdui-panel-item-summary"><?PHP echo $List->info?></div>
