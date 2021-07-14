@@ -8,7 +8,8 @@ function check($lists){
     global $setting,$listfor;
     // 条件判断
     if ($listfor == $lists) {
-        echo 'mdui-text-color-'.$setting["Web"]["subcolor"]; //MDUI颜色代码
+        echo 'mdui-text-color-'; //MDUI颜色代码
+        check_night_time_accent();
     }
 }
 // 父菜单颜色配置
@@ -17,7 +18,8 @@ function listOnL($listOn) {
     global $setting,$listOnL;
     // 条件判断
     if ($listOnL == $listOn) {
-        echo 'mdui-text-color-'.$setting["Web"]["subcolor"]; //MDUI颜色代码
+        echo 'mdui-text-color-'; //MDUI颜色代码
+        check_night_time_accent();
     }
 }
 // 子菜单颜色配置
@@ -26,11 +28,12 @@ function listOn($listO) {
     global $setting,$listOn;
     // 条件判断
     if ($listOn == $listO) {
-        echo 'mdui-text-color-'.$setting["Web"]["subcolor"]; //MDUI颜色代码
+        echo 'mdui-text-color-'; //MDUI颜色代码
+        check_night_time_accent();
     }
 }
 ?>
-<div class="mdui-drawer mdui-shadow-3 <?PHP if ($listfor == 1) {echo "mdui-drawer-close";}?>" id="menu">
+<div class="mdui-drawer mdui-shadow-3 <?PHP if ($listfor == 1) {echo "mdui-drawer-close";}?> <?PHP echo check_night_black() ?>" id="menu">
     <ul class="mdui-list" mdui-collapse="{Behavior: true}">
         <a href="../index.php">
             <li class="mdui-list-item mdui-ripple">
