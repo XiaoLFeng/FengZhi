@@ -5,7 +5,7 @@ include('../config.inc.php');
 // 主菜单颜色配置
 function check($lists){
     // 引入全局变量
-    global $setting,$listfor;
+    global $listfor;
     // 条件判断
     if ($listfor == $lists) {
         echo 'mdui-text-color-'; //MDUI颜色代码
@@ -15,7 +15,7 @@ function check($lists){
 // 父菜单颜色配置
 function listOnL($listOn) {
     // 引入全局变量
-    global $setting,$listOnL;
+    global $listOnL;
     // 条件判断
     if ($listOnL == $listOn) {
         echo 'mdui-text-color-'; //MDUI颜色代码
@@ -25,7 +25,7 @@ function listOnL($listOn) {
 // 子菜单颜色配置
 function listOn($listO) {
     // 引入全局变量
-    global $setting,$listOn;
+    global $listOn;
     // 条件判断
     if ($listOn == $listO) {
         echo 'mdui-text-color-'; //MDUI颜色代码
@@ -33,7 +33,7 @@ function listOn($listO) {
     }
 }
 ?>
-<div class="mdui-drawer mdui-shadow-3 <?PHP if ($listfor == 1) {echo "mdui-drawer-close";}?> <?PHP echo check_night_black() ?>" id="menu">
+<div class="mdui-drawer mdui-shadow-3 <?PHP if ($listfor == 1) {echo "mdui-drawer-close";}?> <?PHP echo check_night_black() ?>" id="menus">
     <ul class="mdui-list" mdui-collapse="{Behavior: true}">
         <a href="../index.php">
             <li class="mdui-list-item mdui-ripple">
