@@ -7,6 +7,8 @@ error_reporting(0);
 $ap = htmlspecialchars($_GET["ap"]);
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
+// 引入插件
+include("../plugins/night.php");  //引入夜间模式插件
 $listOnL = 1;
 $listOn = 102;
 // 导入数据库
@@ -37,19 +39,9 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
         crossorigin="anonymous"
     />
 </head>
-<body class="mdui-theme-primary-<?php echo $setting["Web"]["color"] ?> mdui-theme-accent-<?php echo $setting["Web"]["subcolor"] ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left">
+<body class="mdui-theme-primary-<?php echo check_night_time_primary() ?> mdui-theme-accent-<?php echo check_night_time_accent() ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left <?PHP echo check_night_black() ?>">
 <!-- 顶部TAB -->
-<header>
-<div class="mdui-appbar mdui-appbar-fixed">
-    <div class="mdui-toolbar mdui-color-theme mdui-shadow-2 mdui-appbar-inset">
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#menu'}" mdui-tooltip="{content: '菜单'}"><i class="mdui-icon material-icons">menu</i></a>
-        <a href="javascript:;" class="mdui-typo-title"><?php echo $setting["Info"]["name"] ?></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '刷新'}"><i class="mdui-icon material-icons">refresh</i></a>
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">more_vert</i></a>
-    </div>
-</div>
-</header>
+<?PHP include_once('../header.php'); ?>
 <!-- 菜单 -->
 <?PHP include_once('../menu.php'); ?>
 <!-- 正文 -->
@@ -73,13 +65,13 @@ if ($ap == NULL) {
 </div>
 <div class="mdui-container">
     <div class="mdui-table-fluid mdui-m-y-4">
-        <table class="mdui-table mdui-table-hoverable">
+        <table class="mdui-table mdui-table-hoverable <?PHP check_night_bkg() ?>">
             <thead>
                 <tr>
-                    <th>名字</th>
-                    <th>作者</th>
-                    <th>学习时期</th>
-                    <th>进入</th>
+                    <th class="<?PHP check_night_write() ?>">名字</th>
+                    <th class="<?PHP check_night_write() ?>">作者</th>
+                    <th class="<?PHP check_night_write() ?>">学习时期</th>
+                    <th class="<?PHP check_night_write() ?>">进入</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,9 +89,9 @@ if ($ap == NULL) {
             }
             $str = str_replace('.md','',$dir);
             ?>
-            <td><strong><?PHP echo "《".$str."》"; ?></strong></td>
-            <td><?PHP $a=file('./ancient_poetry/'.$str.'.md');$strs = str_replace('#### 作者: ','',$a[2]);echo $strs?></td>
-            <td><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 学习时期: ','',$b[6]);echo $strss?></td>
+            <td class="<?PHP check_night_write() ?>"><strong><?PHP echo "《".$str."》"; ?></strong></td>
+            <td class="<?PHP check_night_write() ?>"><?PHP $a=file('./ancient_poetry/'.$str.'.md');$strs = str_replace('#### 作者: ','',$a[2]);echo $strs?></td>
+            <td class="<?PHP check_night_write() ?>"><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 学习时期: ','',$b[6]);echo $strss?></td>
             <td><a href="?ap=<?PHP echo $str ?>"><button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple">查阅</button></a></td>
         </tr>
     <?PHP
