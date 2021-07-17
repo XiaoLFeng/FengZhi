@@ -6,7 +6,8 @@ error_reporting(0);
 // 引入设置
 include("./config.inc.php");
 // 引入插件
-include("./plugins/night.php");  //引入夜间模式插件
+include("./plugins/night.php");  // 引入夜间模式插件
+include("./plugins/img.php"); // 图片库自动判断
 $listfor = 1;
 ?>
 <!DOCTYPE html>
@@ -42,14 +43,135 @@ $listfor = 1;
 <!-- 正文 -->
 <div class="mdui-container">
     <div class="mdui-col-xs-12 mdui-valign">
-        <div class="mdui-typo mdui-center mdui-m-y-5">
-            <h1><?PHP echo $setting["Info"]["name"] ?> &mdash; <?PHP echo $setting["Info"]["subname"] ?></h1>
+        <div class="mdui-typo mdui-center mdui-m-y-4">
+            <h1><?PHP echo $setting["Info"]["name"] ?> <?PHP echo $setting["Info"]["subname"] ?></h1>
         </div>
     </div>
 </div>
 <div class="mdui-container mdui-valign">
-    <div class="mdui-center">
+    <div class="mdui-center mdui-m-y-1">
         <a href="./my.php"><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">开始</button></a>
+    </div>
+</div>
+<!-- 快捷栏 -->
+<div class="mdui-container mdui-m-y-4">
+    <div class="mdui-row-xs-3 mdui-grid-list">
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="./Chinese/"><img src="<?PHP echo img() ?>yuwen.png"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">语文</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>厚硕的双翅,激人永远搏击长空</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>shuxue.png"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">数学</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>说一不二,三心两意,四面楚歌,七上八下</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">英语</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>Welcome~</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- [Start]
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">日语</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>こんにちは</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        [End] -->
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>wuli.png"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">物理</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>E=mc²</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- [Start]
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">历史</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>秦始皇</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        [End] -->
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>shengwu.png"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">生物</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>人体的构造</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>huaxue.png"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">化学</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>4Na + O₂ == 2Na₂O</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- [Start]
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">政治</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>政治是以经济为基础的上层建筑，是经济的集中表现</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="mdui-col">
+            <div class="mdui-grid-tile mdui-m-a-2">
+            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <div class="mdui-grid-tile-actions">
+                <div class="mdui-grid-tile-text">
+                    <div class="mdui-grid-tile-title">地理</div>
+                    <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">library_books</i>地理学是研究地球表面的地理环境中各种...</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        [End] -->
     </div>
 </div>
 <!-- 页脚版权内容 -->

@@ -83,10 +83,10 @@ function check_night_black() {
     if (isset($_COOKIE["night"]) == false or isset($_COOKIE["night"]) == NULL) {
         // 时间条件判断是否开启
         if ($time >= "18:00" && $time <= "23:59" or $time >= "00.00" && $time <= "06:00") {
-            echo "mdui-color-grey-600";
+            echo "mdui-theme-layout-dark";
         }
     } elseif ($_COOKIE["night"] == "night") {
-        echo "mdui-color-grey-600";
+        echo "mdui-theme-layout-dark";
     }
 }
 
@@ -98,10 +98,10 @@ function check_night_bkg() {
     if (isset($_COOKIE["night"]) == false or isset($_COOKIE["night"]) == NULL) {
         // 时间条件判断是否开启
         if ($time >= "18:00" && $time <= "23:59" or $time >= "00.00" && $time <= "06:00") {
-            echo "mdui-color-grey-700";
+            echo "mdui-color-grey-800";
         }
     } elseif ($_COOKIE["night"] == "night") {
-        echo "mdui-color-grey-700";
+        echo "mdui-color-grey-800";
     }
 }
 

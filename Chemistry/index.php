@@ -9,7 +9,7 @@ include("../plugins/mysql_conn.php");
 // 引入插件
 include("../plugins/night.php");  //引入夜间模式插件
 $listOnL = 2;
-$listOn = 202;
+$listOn = 201;
 // 导入数据库
 $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");  
 ?>
@@ -47,47 +47,18 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
 <div class="mdui-container">
     <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
         <div class="mdui-typo mdui-center">
-            <h2><?PHP echo $setting["Info"]["name"] ?> &mdash; 化学 | 无机方程式</h2>
+            <h2><?PHP echo $setting["Info"]["name"] ?> &mdash; 化学</h2>
         </div>
     </div>
 </div>
 <div class="mdui-container">
     <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
         <div class="mdui-typo mdui-center">
-            <p>由于计算机输入法无特殊字符，请勿以展示的方程式为准，请打开后展示的方程式为最终方程式</p>
+            <p>请在下方选择你需要的项目</p>
         </div>
     </div>
 </div>
-<div class="mdui-container mdui-valign mdui-typo">
-    <div class="mdui-container mdui-m-y-4">
-        <div class="mdui-panel mdui-panel-popout" mdui-panel="{accordion: true}">
-            <!-- 循环内容 -->
-            <?PHP
-            while ($List = mysqli_fetch_object($SQL)) {
-            ?>
-            <div class="mdui-panel-item <?PHP check_night_bkg() ?>">
-                <div class="mdui-panel-item-header">
-                    <div class="mdui-panel-item-title"><?PHP echo $List->equation?></div>
-                    <div class="mdui-panel-item-summary"><?PHP echo $List->info?></div>
-                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-                </div>
-                <div class="mdui-panel-item-body">
-                <div class="mdui-valign mdui-m-b-1">
-                    <div class="mdui-center">
-                        <img src="<?PHP echo $List->image?>" alt="">
-                    </div>
-                </div>
-                <div><strong>
-                    <?PHP echo $List->intext?>
-                </strong></div>
-                </div>
-            </div>
-            <?PHP
-            }
-            ?>
-            <!-- 结束循环 -->
-        </div>
-    </div>
+<div class="mdui-container">
 </div>
 <!-- 页脚版权内容 -->
 <?PHP include("../footer.html") ?>

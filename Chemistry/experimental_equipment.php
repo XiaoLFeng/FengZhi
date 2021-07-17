@@ -9,7 +9,7 @@ include("../plugins/mysql_conn.php");
 // 引入插件
 include("../plugins/night.php");  //引入夜间模式插件
 $listOnL = 2;
-$listOn = 203;
+$listOn = 204;
 // 导入数据库
 $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");  
 ?>
