@@ -8,7 +8,7 @@ $ap = htmlspecialchars($_GET["ap"]);
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
 // 引入插件
-include("../plugins/night.php");  //引入夜间模式插件
+include("../plugins/color.php");  // 引入主题颜色修改
 $listOnL = 1;
 $listOn = 102;
 // 导入数据库
@@ -65,13 +65,13 @@ if ($ap == NULL) {
 </div>
 <div class="mdui-container">
     <div class="mdui-table-fluid mdui-m-y-4">
-        <table class="mdui-table mdui-table-hoverable <?PHP check_night_bkg() ?>">
+        <table class="mdui-table mdui-table-hoverable">
             <thead>
                 <tr>
-                    <th class="<?PHP check_night_write() ?>">名字</th>
-                    <th class="<?PHP check_night_write() ?>">作者</th>
-                    <th class="<?PHP check_night_write() ?>">学习时期</th>
-                    <th class="<?PHP check_night_write() ?>">进入</th>
+                    <th>名字</th>
+                    <th>作者</th>
+                    <th>学习时期</th>
+                    <th>进入</th>
                 </tr>
             </thead>
             <tbody>
@@ -89,9 +89,9 @@ if ($ap == NULL) {
             }
             $str = str_replace('.md','',$dir);
             ?>
-            <td class="<?PHP check_night_write() ?>"><strong><?PHP echo "《".$str."》"; ?></strong></td>
-            <td class="<?PHP check_night_write() ?>"><?PHP $a=file('./ancient_poetry/'.$str.'.md');$strs = str_replace('#### 作者: ','',$a[2]);echo $strs?></td>
-            <td class="<?PHP check_night_write() ?>"><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 学习时期: ','',$b[6]);echo $strss?></td>
+            <td><strong><?PHP echo "《".$str."》"; ?></strong></td>
+            <td><?PHP $a=file('./ancient_poetry/'.$str.'.md');$strs = str_replace('#### 作者: ','',$a[2]);echo $strs?></td>
+            <td><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 学习时期: ','',$b[6]);echo $strss?></td>
             <td><a href="?ap=<?PHP echo $str ?>"><button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple">查阅</button></a></td>
         </tr>
     <?PHP

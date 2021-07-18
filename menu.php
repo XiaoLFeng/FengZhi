@@ -1,6 +1,4 @@
 <?PHP
-// 引入配置
-include('../config.inc.php');
 // 配置函数
 // 主菜单颜色配置
 function check($lists){
@@ -66,7 +64,7 @@ function listOn($listO) {
         <!-- 数学 -->
         <li class="mdui-collapse-item <?PHP if($listOnL == 2){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(2) ?>">fiber_smart_record</i>
+                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(2) ?>">straighten</i>
                 <div class="mdui-list-item-content <?php listOnL(2) ?>">数学库</div>
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons  <?php listOnL(2) ?>">keyboard_arrow_down</i>
             </div>
@@ -79,7 +77,7 @@ function listOn($listO) {
         <!-- 英语 -->
         <li class="mdui-collapse-item <?PHP if($listOnL == 3){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(3) ?>">book</i>
+                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(3) ?>">child_care</i>
                 <div class="mdui-list-item-content <?php listOnL(3) ?>">英语库</div>
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons  <?php listOnL(3) ?>">keyboard_arrow_down</i>
             </div>
@@ -92,7 +90,7 @@ function listOn($listO) {
         <!-- 日语 -->
         <li class="mdui-collapse-item <?PHP if($listOnL == 4){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(4) ?>">book</i>
+                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(4) ?>">tag_faces</i>
                 <div class="mdui-list-item-content <?php listOnL(4) ?>">日语库</div>
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons  <?php listOnL(4) ?>">keyboard_arrow_down</i>
             </div>
@@ -105,7 +103,7 @@ function listOn($listO) {
         <!-- 物理 -->
         <li class="mdui-collapse-item <?PHP if($listOnL == 5){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(5) ?>">book</i>
+                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(5) ?>">timer</i>
                 <div class="mdui-list-item-content <?php listOnL(5) ?>">物理库</div>
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons  <?php listOnL(5) ?>">keyboard_arrow_down</i>
             </div>
@@ -115,10 +113,10 @@ function listOn($listO) {
                 </a>
             </ul>
         </li>
-        <!-- 历史 -->
+        <!-- 历史 
         <li class="mdui-collapse-item <?PHP if($listOnL == 6){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(6) ?>">book</i>
+                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(6) ?>">collections_bookmark</i>
                 <div class="mdui-list-item-content <?php listOnL(6) ?>">历史库</div>
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons  <?php listOnL(6) ?>">keyboard_arrow_down</i>
             </div>
@@ -127,12 +125,12 @@ function listOn($listO) {
                     <li class="mdui-list-item mdui-ripple <?php listOn(601) ?>">首页</li>
                 </a>
             </ul>
-        </li>
+        </li>-->
         <!-- 生物 -->
         <li class="mdui-collapse-item <?PHP if($listOnL == 7){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(7) ?>">book</i>
-                <div class="mdui-list-item-content <?php listOnL(7) ?>">物理库</div>
+                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(7) ?>">pregnant_woman</i>
+                <div class="mdui-list-item-content <?php listOnL(7) ?>">生物库</div>
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons  <?php listOnL(7) ?>">keyboard_arrow_down</i>
             </div>
             <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
@@ -163,7 +161,7 @@ function listOn($listO) {
                 </a>
             </ul>
         </li>
-        <!-- 政治 -->
+        <!-- 政治
         <li class="mdui-collapse-item <?PHP if($listOnL == 9){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(9) ?>">book</i>
@@ -176,7 +174,8 @@ function listOn($listO) {
                 </a>
             </ul>
         </li>
-        <!-- 地理 -->
+        [End] -->
+        <!-- 地理
         <li class="mdui-collapse-item <?PHP if($listOnL == 10){echo "mdui-collapse-item-open";}?>">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(10) ?>">book</i>
@@ -189,5 +188,6 @@ function listOn($listO) {
                 </a>
             </ul>
         </li>
+        [End] -->
     </ul>
 </div>

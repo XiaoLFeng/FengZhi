@@ -90,36 +90,6 @@ function check_night_black() {
     }
 }
 
-// 设置文本中背景颜色
-function check_night_bkg() {
-    // 引入全局变量
-    global $time;
-    // 判断COOKIE是否开启夜间模式
-    if (isset($_COOKIE["night"]) == false or isset($_COOKIE["night"]) == NULL) {
-        // 时间条件判断是否开启
-        if ($time >= "18:00" && $time <= "23:59" or $time >= "00.00" && $time <= "06:00") {
-            echo "mdui-color-grey-800";
-        }
-    } elseif ($_COOKIE["night"] == "night") {
-        echo "mdui-color-grey-800";
-    }
-}
-
-// 设置字体，并且修改字体为白色
-function check_night_write() {
-    // 引入全局变量
-    global $time;
-    // 判断COOKIE是否开启夜间模式
-    if (isset($_COOKIE["night"]) == false or isset($_COOKIE["night"]) == NULL) {
-        // 时间条件判断是否开启
-        if ($time >= "18:00" && $time <= "23:59" or $time >= "00.00" && $time <= "06:00") {
-            echo "mdui-text-color-white";
-        }
-    } elseif ($_COOKIE["night"] == "night") {
-        echo "mdui-text-color-white";
-    }
-}
-
 // DeBUG模式（报错查询）
 if ($setting["Debug"] == true) {
     echo "check_night_time_primary函数模块（输出）：";
@@ -130,12 +100,6 @@ if ($setting["Debug"] == true) {
     echo "<br/>";
     echo "check_night_black函数模块（输出）：";
     check_night_black();
-    echo "<br/>";
-    echo "check_night_write函数模块（输出）：";
-    check_night_write();
-    echo "<br/>";
-    echo "check_night_bkg函数模块（输出）：";
-    check_night_bkg();
     echo "<br/>";
     echo "Cookie调用情况：";
     echo $_COOKIE["night"];

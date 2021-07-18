@@ -6,7 +6,7 @@ error_reporting(0);
 // 引入设置
 include("./config.inc.php");
 // 引入插件
-include("./plugins/night.php");  //引入夜间模式插件
+include("./plugins/color.php");  // 引入主题颜色修改
 $listfor = 2;
 ?>
 <!DOCTYPE html>

@@ -7,7 +7,7 @@ error_reporting(0);
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
 // 引入插件
-include("../plugins/night.php");  //引入夜间模式插件
+include("../plugins/color.php");  // 引入主题颜色修改
 $listOnL = 2;
 $listOn = 203;
 // 导入数据库
@@ -65,7 +65,7 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_organic");
             <?PHP
             while ($List = mysqli_fetch_object($SQL)) {
             ?>
-            <div class="mdui-panel-item <?PHP check_night_bkg() ?>">
+            <div class="mdui-panel-item">
                 <div class="mdui-panel-item-header">
                     <div class="mdui-panel-item-title"><?PHP echo $List->equation?></div>
                     <div class="mdui-panel-item-summary"><?PHP echo $List->info?></div>
