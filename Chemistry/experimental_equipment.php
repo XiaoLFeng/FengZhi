@@ -8,8 +8,8 @@ include("../config.inc.php");
 include("../plugins/mysql_conn.php");
 // 引入插件
 include("../plugins/color.php");  // 引入主题颜色修改
-$listOnL = 2;
-$listOn = 204;
+$listOnL = 8;
+$listOn = 804;
 // 导入数据库
 $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");  
 ?>
