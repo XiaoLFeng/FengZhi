@@ -8,6 +8,7 @@ include("../config.inc.php");
 include("../plugins/mysql_conn.php");
 // 引入插件
 include("../plugins/color.php");  // 引入主题颜色修改
+include("../plugins/img.php"); // 图片库自动判断
 $listOnL = 8;
 $listOn = 802;
 // 导入数据库
@@ -74,7 +75,7 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
                 <div class="mdui-panel-item-body">
                 <div class="mdui-valign mdui-m-b-1">
                     <div class="mdui-center">
-                        <img src="<?PHP echo $List->image?>" alt="">
+                        <img src="<?PHP img() ?>Chemistry/方程式/无机/<?PHP echo $List->image?>" alt="">
                     </div>
                 </div>
                 <div><strong>

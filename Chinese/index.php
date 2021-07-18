@@ -8,6 +8,7 @@ include("../config.inc.php");
 include("../plugins/mysql_conn.php");
 // 引入插件
 include("../plugins/color.php");  // 引入主题颜色修改
+include("../plugins/img.php"); // 图片库自动判断
 $listOnL = 1;
 $listOn = 101;
 // 导入数据库

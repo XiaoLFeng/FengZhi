@@ -58,7 +58,7 @@ $listfor = 1;
     <div class="mdui-row-xs-3 mdui-grid-list">
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="./Chinese/"><img src="<?PHP echo img() ?>yuwen.png"/></a>
+            <a href="./Chinese/"><img src="<?PHP img() ?>sources/img/yuwen.png"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">语文</div>
@@ -69,7 +69,7 @@ $listfor = 1;
         </div>
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>shuxue.png"/></a>
+            <a href="javascript:;"><img src="<?PHP img() ?>sources/img/shuxue.png"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">数学</div>
@@ -80,7 +80,7 @@ $listfor = 1;
         </div>
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/card.webp"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">英语</div>
@@ -92,7 +92,7 @@ $listfor = 1;
         <!-- [Start]
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/card.webp"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">日语</div>
@@ -104,7 +104,7 @@ $listfor = 1;
         [End] -->
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>wuli.png"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/wuli.png"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">物理</div>
@@ -116,7 +116,7 @@ $listfor = 1;
         <!-- [Start]
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/card.webp"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">历史</div>
@@ -128,7 +128,7 @@ $listfor = 1;
         [End] -->
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>shengwu.png"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/shengwu.png"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">生物</div>
@@ -139,7 +139,7 @@ $listfor = 1;
         </div>
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>huaxue.png"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/huaxue.png"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">化学</div>
@@ -151,7 +151,7 @@ $listfor = 1;
         <!-- [Start]
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/card.webp"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">政治</div>
@@ -162,7 +162,7 @@ $listfor = 1;
         </div>
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>card.webp"/></a>
+            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/card.webp"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">地理</div>
