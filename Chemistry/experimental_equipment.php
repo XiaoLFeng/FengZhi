@@ -85,7 +85,7 @@ $SQL = mysqli_query($conn,"SELECT * FROM experimental_equipment");
                     </tr>
                     <div class="mdui-dialog" id="info-<?PHP echo $x?>">
                         <div class="mdui-dialog-title"><?PHP echo $List->name?></div>
-                        <div class="mdui-dialog-content"><strong>使用方法：</strong><?PHP echo $List->info?><br/><strong>注意事项：</strong><?PHP if($List->warning == NULL or $List->warning == "无"){echo "暂无该内容";}else{echo $List->warning;}?><br/><img src="<?PHP echo $setting["Info"]["jsdelivr"]."/Chemistry/器具/".$List->name.".jpg" ?>" alt=""></div>
+                        <div class="mdui-dialog-content"><strong>使用方法：</strong><?PHP echo $List->info?><br/><strong>注意事项：</strong><?PHP if($List->warning == NULL or $List->warning == "无"){echo "暂无该内容";}else{echo $List->warning;}?><br/><img src="<?PHP img(); echo "Chemistry/器具/".$List->name.".jpg" ?>" alt=""></div>
                         <div class="mdui-dialog-actions">
                             <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确认</button>
                         </div>
