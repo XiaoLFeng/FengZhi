@@ -14,6 +14,12 @@ if (!$group == NULL) {
         setcookie( "color", "night" , time() + 43200 , "/" );
     } elseif ($group == "01") { // 主题色自选
         setcookie( "color", "green" , time() + 86400 , "/" );
+    } elseif ($group == "02") { // 主题色自选
+        setcookie( "color", "amber" , time() + 86400 , "/" );
+    } elseif ($group == "03") { // 主题色自选
+        setcookie( "color", "light-blue" , time() + 86400 , "/" );
+    } elseif ($group == "04") { // 主题色自选
+        setcookie( "color", "indigo" , time() + 86400 , "/" );
     }
     $group = NULL;
     header("location:?");
@@ -78,6 +84,39 @@ if (isset($_COOKIE["color"]) == NULL) {
         }
         function check_night_time_accent() {
             echo "blue";
+        }
+        function check_night_black() {}
+    }
+    // amber
+    if ($_COOKIE["color"] == "amber") {
+        // 执行函数
+        function check_night_time_primary() {
+            echo "amber";
+        }
+        function check_night_time_accent() {
+            echo "deep-orange";
+        }
+        function check_night_black() {}
+    }
+    // light-blue
+    if ($_COOKIE["color"] == "light-blue") {
+        // 执行函数
+        function check_night_time_primary() {
+            echo "light-blue";
+        }
+        function check_night_time_accent() {
+            echo "deep-purple";
+        }
+        function check_night_black() {}
+    }
+    // indigo
+    if ($_COOKIE["color"] == "indigo") {
+        // 执行函数
+        function check_night_time_primary() {
+            echo "indigo";
+        }
+        function check_night_time_accent() {
+            echo "pink";
         }
         function check_night_black() {}
     }

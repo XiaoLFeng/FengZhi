@@ -63,6 +63,27 @@
                         <strong class="mdui-text-color-light-green">◉</strong><strong class="mdui-text-color-blue">◉</strong>
                         </label>
                     </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                        <input type="radio" id="Group" name="Group" value="02" <?PHP if($_COOKIE["color"] == "amber") {echo "checked";} ?>/>
+                        <i class="mdui-radio-icon"></i>
+                        <strong class="mdui-text-color-amber">◉</strong><strong class="mdui-text-color-deep-orange">◉</strong>
+                        </label>
+                    </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                        <input type="radio" id="Group" name="Group" value="03" <?PHP if($_COOKIE["color"] == "light-blue") {echo "checked";} ?>/>
+                        <i class="mdui-radio-icon"></i>
+                        <strong class="mdui-text-color-light-blue">◉</strong><strong class="mdui-text-color-deep-purple">◉</strong>
+                        </label>
+                    </div>
+                    <div class="mdui-col">
+                        <label class="mdui-radio">
+                        <input type="radio" id="Group" name="Group" value="04" <?PHP if($_COOKIE["color"] == "indigo") {echo "checked";} ?>/>
+                        <i class="mdui-radio-icon"></i>
+                        <strong class="mdui-text-color-indigo">◉</strong><strong class="mdui-text-color-pink">◉</strong>
+                        </label>
+                    </div>
                 </div>
             </div>
             </div>
