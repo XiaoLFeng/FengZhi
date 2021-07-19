@@ -6,13 +6,31 @@ error_reporting(0);
 // 引入设置
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
+$period = htmlspecialchars($_GET["period"]);
 // 引入插件
 include("../plugins/color.php");  // 引入主题颜色修改
 include("../plugins/img.php"); // 图片库自动判断
 $listOnL = 8;
 $listOn = 802;
+// 数据提交（筛选器）
+$post = $_POST["select"];
+if ($post == "clear") {
+    setcookie( "night", "night" , time() + 10800 , "/" );
+} elseif ($post == "1") {
+    setcookie( "night", "night" , time() + 10800 , "/" );
+} elseif ($post == "2") {
+    header("location:?period=2");
+}
+// 条件判断加入！
+if ($period == "clear" or $period == NULL) {
+    $connect = 'SELECT * FROM equation_inorganic';
+} elseif ($period == 1) {
+    $connect = "SELECT * FROM equation_inorganic where period='高中'";
+} elseif ($period == 2) {
+    $connect = "SELECT * FROM equation_inorganic where period='初中'";
+}
 // 导入数据库
-$SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");  
+$SQL = mysqli_query($conn,$connect);  
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -56,6 +74,33 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
     <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
         <div class="mdui-typo mdui-center">
             <p>由于计算机输入法无特殊字符，请勿以展示的方程式为准，请打开后展示的方程式为最终方程式</p>
+        </div>
+    </div>
+</div>
+<div class="mdui-container">
+    <div class="mdui-col-xs-12 mdui-m-y-2">
+        <div class="mdui-typo mdui-row-md-3">
+            <form action="" method="post">
+                <h4>筛选器</h4>
+                <label class="mdui-radio mdui-col-xs-2">
+                    <input type="radio" id="select" name="select" value="clear" <?PHP if($period = "clear"){echo "checked";} ?>/>
+                    <i class="mdui-radio-icon"></i>
+                    清空（默认）
+                </label>
+                <label class="mdui-radio mdui-col-xs-2">
+                    <input type="radio" id="select" name="select" value="1" <?PHP if($period = 1){echo "checked";} ?>/>
+                    <i class="mdui-radio-icon"></i>
+                    仅看高中
+                </label>
+                <label class="mdui-radio mdui-col-xs-2">
+                    <input type="radio" id="select" name="select" value="2" <?PHP if($period = 2){echo "checked";} ?>/>
+                    <i class="mdui-radio-icon"></i>
+                    仅看初中
+                </label>
+                <div class="mdui-col-xs-2">
+                    <button class="mdui-btn mdui-color-theme-accent mdui-ripple" type="submit">确认</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
