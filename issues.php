@@ -8,7 +8,7 @@ $is = htmlspecialchars($_GET["is"]);
 include("./config.inc.php");
 include("./plugins/mysql_conn.php");
 // 引入插件
-include("./plugins/night.php");  //引入夜间模式插件
+include("./plugins/color.php");  //引入夜间模式插件
 // 导入数据库
 $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
 $SQL_issues = $conn->query( "SELECT * FROM issues" );
@@ -113,13 +113,13 @@ if ($is == NULL) {
         </div>
     </div>
     <div class="mdui-table-fluid mdui-m-y-2 mdui-hidden-sm-down">
-        <table class="mdui-table mdui-table-hoverable <?PHP check_night_bkg() ?>">
+        <table class="mdui-table mdui-table-hoverable">
             <thead>
                 <tr>
-                    <th class="<?PHP check_night_write() ?>">#</th>
-                    <th class="<?PHP check_night_write() ?>">反馈/提交内容</th>
-                    <th class="<?PHP check_night_write() ?>">提交者</th>
-                    <th class="<?PHP check_night_write() ?>">详情</th>
+                    <th>#</th>
+                    <th>反馈/提交内容</th>
+                    <th>提交者</th>
+                    <th>详情</th>
                 </tr>
             </thead>
             <tbody>
@@ -127,8 +127,8 @@ if ($is == NULL) {
     while($issue = mysqli_fetch_object($SQL_issues)) {
         ?>
         <tr>
-            <td class="<?PHP check_night_write() ?>"><strong><?PHP echo $issue->id ?></strong></td>
-            <td class="<?PHP check_night_write() ?>"><?PHP 
+            <td><strong><?PHP echo $issue->id ?></strong></td>
+            <td><?PHP 
                                                         echo $issue->title;
                                                         if ($issue->closed == "false") {
                                                             echo '<font color="grey"> [</font><font color="green">开放</font><font color="grey">]</font>'; 
@@ -139,7 +139,7 @@ if ($is == NULL) {
                                                             echo '<font color="grey"> [</font><font color="blue">开发者已回复</font><font color="grey">]</font>'; 
                                                         }
                                                     ?></td>
-            <td class="<?PHP check_night_write() ?>"><?PHP echo $issue->name ?></td>
+            <td><?PHP echo $issue->name ?></td>
             <td><a href="?is=<?PHP echo $issue->id ?>"><button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple">查阅</button></a></td>
         </tr>
     <?PHP
