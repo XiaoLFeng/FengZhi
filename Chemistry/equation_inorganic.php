@@ -6,7 +6,6 @@ error_reporting(0);
 // 引入设置
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
-$period = htmlspecialchars($_GET["period"]);
 // 引入插件
 include("../plugins/color.php");  // 引入主题颜色修改
 include("../plugins/img.php"); // 图片库自动判断
@@ -15,18 +14,21 @@ $listOn = 802;
 // 数据提交（筛选器）
 $post = $_POST["select"];
 if ($post == "clear") {
-    setcookie( "night", "night" , time() + 10800 , "/" );
+    setcookie("chemistry_inorganic","",time()-1,"/");
+    header("location:?");
 } elseif ($post == "1") {
-    setcookie( "night", "night" , time() + 10800 , "/" );
+    setcookie( "chemistry_inorganic", "1" , time() + 10800 , "/" );
+    header("location:?");
 } elseif ($post == "2") {
-    header("location:?period=2");
+    setcookie( "chemistry_inorganic", "2" , time() + 10800 , "/" );
+    header("location:?");
 }
 // 条件判断加入！
-if ($period == "clear" or $period == NULL) {
+if (isset($_COOKIE["chemistry_inorganic"]) == NULL) {
     $connect = 'SELECT * FROM equation_inorganic';
-} elseif ($period == 1) {
+} elseif ($_COOKIE["chemistry_inorganic"] == 1) {
     $connect = "SELECT * FROM equation_inorganic where period='高中'";
-} elseif ($period == 2) {
+} elseif ($_COOKIE["chemistry_inorganic"] == 2) {
     $connect = "SELECT * FROM equation_inorganic where period='初中'";
 }
 // 导入数据库
@@ -83,17 +85,17 @@ $SQL = mysqli_query($conn,$connect);
             <form action="" method="post">
                 <h4>筛选器</h4>
                 <label class="mdui-radio mdui-col-xs-2">
-                    <input type="radio" id="select" name="select" value="clear" <?PHP if($period = "clear"){echo "checked";} ?>/>
+                    <input type="radio" id="select" name="select" value="clear" <?PHP if(isset($_COOKIE["chemistry_inorganic"]) == NULL){echo "checked";} ?>/>
                     <i class="mdui-radio-icon"></i>
                     清空（默认）
                 </label>
                 <label class="mdui-radio mdui-col-xs-2">
-                    <input type="radio" id="select" name="select" value="1" <?PHP if($period = 1){echo "checked";} ?>/>
+                    <input type="radio" id="select" name="select" value="1" <?PHP if($_COOKIE["chemistry_inorganic"] == 1){echo "checked";} ?>/>
                     <i class="mdui-radio-icon"></i>
                     仅看高中
                 </label>
                 <label class="mdui-radio mdui-col-xs-2">
-                    <input type="radio" id="select" name="select" value="2" <?PHP if($period = 2){echo "checked";} ?>/>
+                    <input type="radio" id="select" name="select" value="2" <?PHP if($_COOKIE["chemistry_inorganic"] == 2){echo "checked";} ?>/>
                     <i class="mdui-radio-icon"></i>
                     仅看初中
                 </label>
