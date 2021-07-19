@@ -98,6 +98,9 @@ function listOn($listO) {
                 <a href="../Nihongo/">
                     <li class="mdui-list-item mdui-ripple <?php listOn(401) ?>">首页</li>
                 </a>
+                <a href="../Nihongo/tango.php">
+                    <li class="mdui-list-item mdui-ripple <?php listOn(402) ?>">単語「たんご」</li>
+                </a>
             </ul>
         </li>
         <!-- 物理 -->
