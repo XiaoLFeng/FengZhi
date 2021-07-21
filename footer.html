@@ -4,6 +4,13 @@
             <div class="mdui-typo mdui-valign">
                 <div class="mdui-typo-body-2 mdui-center">
                     <p>Copyright &copy; 2018 - <?PHP echo date("Y"); ?> <a href="https://www.frontleaves.cn/">FrontLeaves</a>. All Rights Reserved.</p>
+                    <?PHP 
+                    if(!$_SERVER['SERVER_NAME'] == "127.0.0.1"){
+                        ?><script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280135805'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1280135805%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><?PHP
+                    }else{
+
+                    } 
+                    ?>
                 </div>
             </div>
         </div>
