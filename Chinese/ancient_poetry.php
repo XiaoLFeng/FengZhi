@@ -71,7 +71,7 @@ if ($ap == NULL) {
                 <tr>
                     <th>名字</th>
                     <th>作者</th>
-                    <th>学习时期</th>
+                    <th class="mdui-hidden-sm-down">学习时期</th>
                     <th>进入</th>
                 </tr>
             </thead>
@@ -92,7 +92,7 @@ if ($ap == NULL) {
             ?>
             <td><strong><?PHP echo "《".$str."》"; ?></strong></td>
             <td><?PHP $a=file('./ancient_poetry/'.$str.'.md');$strs = str_replace('#### 作者: ','',$a[2]);echo $strs?></td>
-            <td><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 学习时期: ','',$b[6]);echo $strss?></td>
+            <td class="mdui-hidden-sm-down"><?PHP $b=file('./ancient_poetry/'.$str.'.md');$strss = str_replace('#### 学习时期: ','',$b[6]);echo $strss?></td>
             <td><a href="?ap=<?PHP echo $str ?>"><button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple">查阅</button></a></td>
         </tr>
     <?PHP
