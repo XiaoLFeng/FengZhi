@@ -85,6 +85,9 @@ function listOn($listO) {
                 <a href="../English/">
                     <li class="mdui-list-item mdui-ripple <?php listOn(301) ?>">首页</li>
                 </a>
+                <a href="../English/word.php">
+                    <li class="mdui-list-item mdui-ripple <?php listOn(302) ?>">Word</li>
+                </a>
             </ul>
         </li>
         <!-- 日语 -->
