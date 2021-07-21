@@ -9,32 +9,32 @@ include("../plugins/mysql_conn.php");
 // 引入插件
 include("../plugins/color.php");  // 引入主题颜色修改
 include("../plugins/img.php"); // 图片库自动判断
-$listOnL = 4;
-$listOn = 402;
+$listOnL = 3;
+$listOn = 302;
 // 数据提交（筛选器）
 $post = $_POST["select"];
 if ($post == "clear") {
-    setcookie("nihongo_tango","",time()-1,"/");
+    setcookie("english_word","",time()-1,"/");
     header("location:?");
 } elseif ($post == "1") {
-    setcookie( "nihongo_tango", "1" , time() + 10800 , "/" );
+    setcookie( "english_word", "1" , time() + 10800 , "/" );
     header("location:?");
 } elseif ($post == "2") {
-    setcookie( "nihongo_tango", "2" , time() + 10800 , "/" );
+    setcookie( "english_word", "2" , time() + 10800 , "/" );
     header("location:?");
 } elseif ($post == "3") {
-    setcookie( "nihongo_tango", "3" , time() + 10800 , "/" );
+    setcookie( "english_word", "3" , time() + 10800 , "/" );
     header("location:?");
 }
 // 条件判断加入！
-if (isset($_COOKIE["nihongo_tango"]) == NULL) {
-    $connect = 'SELECT * FROM nihongo_tango';
-} elseif ($_COOKIE["nihongo_tango"] == 1) {
-    $connect = "SELECT * FROM nihongo_tango where version='N5'";
-} elseif ($_COOKIE["nihongo_tango"] == 2) {
-    $connect = "SELECT * FROM nihongo_tango where version='N4'";
-} elseif ($_COOKIE["nihongo_tango"] == 3) {
-    $connect = "SELECT * FROM nihongo_tango where version='bc'";
+if (isset($_COOKIE["english_word"]) == NULL) {
+    $connect = 'SELECT * FROM english_word';
+} elseif ($_COOKIE["english_word"] == 1) {
+    $connect = "SELECT * FROM english_word where version='C'";
+} elseif ($_COOKIE["english_word"] == 2) {
+    $connect = "SELECT * FROM english_word where version='G'";
+} elseif ($_COOKIE["english_word"] == 3) {
+    $connect = "SELECT * FROM english_word where version='bc'";
 }
 // 导入数据库
 $SQL = mysqli_query($conn,$connect);  
@@ -73,7 +73,7 @@ $SQL = mysqli_query($conn,$connect);
 <div class="mdui-container">
     <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
         <div class="mdui-typo mdui-center">
-            <h2><?PHP echo $setting["Info"]["name"] ?> &mdash; 日本語 | 単語「たんご」</h2>
+            <h2><?PHP echo $setting["Info"]["name"] ?> &mdash; English | Word</h2>
         </div>
     </div>
 </div>
@@ -90,22 +90,22 @@ $SQL = mysqli_query($conn,$connect);
             <form action="" method="post">
                 <h4>筛选器</h4>
                 <label class="mdui-radio mdui-col-xs-2">
-                    <input type="radio" id="select" name="select" value="clear" <?PHP if(isset($_COOKIE["nihongo_tango"]) == NULL){echo "checked";} ?>/>
+                    <input type="radio" id="select" name="select" value="clear" <?PHP if(isset($_COOKIE["english_word"]) == NULL){echo "checked";} ?>/>
                     <i class="mdui-radio-icon"></i>
                     全部(默认)
                 </label>
                 <label class="mdui-radio mdui-col-xs-2">
-                    <input type="radio" id="select" name="select" value="1" <?PHP if($_COOKIE["nihongo_tango"] == 1){echo "checked";} ?>/>
+                    <input type="radio" id="select" name="select" value="1" <?PHP if($_COOKIE["english_word"] == 1){echo "checked";} ?>/>
                     <i class="mdui-radio-icon"></i>
-                    仅N5单词
+                    仅初中单词
                 </label>
                 <label class="mdui-radio mdui-col-xs-2">
-                    <input type="radio" id="select" name="select" value="2" <?PHP if($_COOKIE["nihongo_tango"] == 2){echo "checked";} ?>/>
+                    <input type="radio" id="select" name="select" value="2" <?PHP if($_COOKIE["english_word"] == 2){echo "checked";} ?>/>
                     <i class="mdui-radio-icon"></i>
-                    仅N4单词
+                    仅高中单词
                 </label>
                 <label class="mdui-radio mdui-col-xs-2">
-                    <input type="radio" id="select" name="select" value="3" <?PHP if($_COOKIE["nihongo_tango"] == 3){echo "checked";} ?>/>
+                    <input type="radio" id="select" name="select" value="3" <?PHP if($_COOKIE["english_word"] == 3){echo "checked";} ?>/>
                     <i class="mdui-radio-icon"></i>
                     仅补充单词
                 </label>
@@ -125,16 +125,14 @@ $SQL = mysqli_query($conn,$connect);
             ?>
             <div class="mdui-panel-item">
                 <div class="mdui-panel-item-header">
-                    <div class="mdui-panel-item-title"><?PHP echo $List->tango?></div>
-                    <div class="mdui-panel-item-summary mdui-col-xs-2"><?PHP echo $List->kanji?></div>
+                    <div class="mdui-panel-item-title"><?PHP echo $List->word?></div>
                     <div class="mdui-panel-item-summary mdui-col-xs-1"><?PHP echo $List->type?></div>
                     <div class="mdui-panel-item-summary mdui-col-xs-2"><?PHP echo $List->translate?></div>
                     <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                 </div>
                 <div class="mdui-panel-item-body">
                     <div>
-                        <p>假名：<?PHP echo $List->tango ?></p>
-                        <p>汉字：<?PHP echo $List->kanji ?></p>
+                        <p>英文：<?PHP echo $List->word ?></p>
                         <p>翻译：<?PHP echo $List->translate ?></p>
                         <p>词性：<?PHP if($List->type == NULL){echo "无";}else{echo $List->type;} ?></p>
                         <strong><?PHP 
