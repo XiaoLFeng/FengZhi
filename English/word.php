@@ -132,7 +132,7 @@ $SQL = mysqli_query($conn,$connect);
                 </div>
                 <div class="mdui-panel-item-body">
                     <div>
-                        <p>英文：<?PHP echo $List->word ?></p>
+                        <p>单词：<?PHP echo $List->word ?></p>
                         <p>翻译：<?PHP echo $List->translate ?></p>
                         <p>词性：<?PHP if($List->type == NULL){echo "无";}else{echo $List->type;} ?></p>
                         <strong><?PHP 
