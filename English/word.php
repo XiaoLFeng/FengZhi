@@ -4,6 +4,7 @@ session_start();
 // 禁用错误报告
 error_reporting(0);
 // 引入设置
+$page = htmlspecialchars($_GET["page"]);
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
 // 引入插件
@@ -27,17 +28,32 @@ if ($post == "clear") {
     header("location:?");
 }
 // 条件判断加入！
+$limit_size = $setting["English"]["Page"]; // 数据库单页容器大小
+// 判断是否键入数值
+if ($page == NULL) {
+    header("location:?page=1");
+} elseif ($page < 1) {
+    header("location:?page=1");
+} else {
+    $limit_start = (($page-1) * $limit_size);
+}
 if (isset($_COOKIE["english_word"]) == NULL) {
-    $connect = 'SELECT * FROM english_word';
+    $connect = "SELECT * FROM english_word order by id_name desc limit $limit_start,$limit_size";
+    $connectL = "SELECT * FROM english_word order by id_name desc";
 } elseif ($_COOKIE["english_word"] == 1) {
-    $connect = "SELECT * FROM english_word where version='C'";
+    $connect = "SELECT * FROM english_word where version='C' order by id_name desc limit $limit_start,$limit_size";
+    $connectL = "SELECT * FROM english_word where version='C' order by id_name desc";
 } elseif ($_COOKIE["english_word"] == 2) {
-    $connect = "SELECT * FROM english_word where version='G'";
+    $connect = "SELECT * FROM english_word where version='G' order by id_name desc limit $limit_start,$limit_size";
+    $connectL = "SELECT * FROM english_word where version='G' order by id_name desc";
 } elseif ($_COOKIE["english_word"] == 3) {
-    $connect = "SELECT * FROM english_word where version='bc'";
+    $connect = "SELECT * FROM english_word where version='bc' order by id_name desc limit $limit_start,$limit_size";
+    $connectL = "SELECT * FROM english_word where version='bc' order by id_name desc";
 }
 // 导入数据库
-$SQL = mysqli_query($conn,$connect);  
+$SQL = mysqli_query($conn,$connect);
+$SQLL = mysqli_query($conn,$connectL);
+$num_max = mysqli_num_rows($SQLL);
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -149,6 +165,57 @@ $SQL = mysqli_query($conn,$connect);
             }
             ?>
             <!-- 结束循环 -->
+        </div>
+    </div>
+</div>
+<!-- 翻页组件 -->
+<div class="mdui-container">
+    <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
+        <div class="mdui-typo mdui-center">
+            <?PHP
+            // 判断页码
+            if ($page == NULL or $page == 1) {
+                echo "首页";
+            } else {
+                echo '<a href="?page=1">';
+                echo '首页';
+                echo '</a>';
+            }
+            ?> | <?PHP
+            if ($page == NULL or $page == 1) {
+                echo '上一页';
+            } else {
+                echo '<a href="?page='.($page-1).'">';
+                echo '上一页';
+                echo '</a>';
+            }
+            ?> | <?PHP
+            if ($page*$limit_size < $num_max) {
+                echo '<a href="?page='.($page+1).'">';
+                echo '下一页';
+                echo '</a>';
+            } else {
+                echo '下一页';
+            }
+            ?> | <?PHP
+            if ($page*$limit_size < $num_max) {
+                // 判断末页
+                if (is_float($num_max/$limit_size)) {
+                    if ($num_max/$limit_size > round($num_max/$limit_size)) {
+                        $page = round($num_max/$limit_size)+1;
+                    } else {
+                        $page = round($num_max/$limit_size);
+                    }
+                } else {
+                    $page = $num_max/$limit_size;
+                }
+                echo '<a href="?page='.$page.'">';
+                echo '末页';
+                echo '</a>';
+            } else {
+                echo '末页';
+            }
+            ?></p>
         </div>
     </div>
 </div>
