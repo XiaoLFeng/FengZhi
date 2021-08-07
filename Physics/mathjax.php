@@ -1,11 +1,12 @@
 <?PHP
+header('Cache-Control:no-cache,must-revalidate');
+header('Pragma:no-cache');
 // 开启session
 session_start();
 // 禁用错误报告
 error_reporting(0);
 // 引入设置
 $cp = htmlspecialchars($_GET["cp"]);
-$rep = htmlspecialchars($_GET["rep"]);
 include("../config.inc.php");
 include("../plugins/mysql_conn.php");
 // 引入插件
@@ -19,6 +20,9 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +44,23 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
         integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
         crossorigin="anonymous"
     />
+    <!-- MathJax -->
+    <script>
+    MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+        fontCache: 'global'
+    }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+
 </head>
 <body class="mdui-theme-primary-<?php echo check_night_time_primary() ?> mdui-theme-accent-<?php echo check_night_time_accent() ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left <?PHP echo check_night_black() ?>">
 <!-- 顶部TAB -->
@@ -50,53 +71,19 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
 <div class="mdui-container">
     <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
         <div class="mdui-typo mdui-center">
-            <h2><?PHP echo $setting["Info"]["name"] ?> &mdash; 物理 | 目录</h2>
+            <h2><?PHP echo $setting["Info"]["name"] ?> &mdash; 物理 | <?PHP $a=file('./chapter/'.$cp.'.md');$strs = str_replace('title: ','',$a[1]);echo $strs?></h2>
         </div>
     </div>
 </div>
 <div class="mdui-container">
-    <div class="mdui-col-xs-12 mdui-valign mdui-m-t-1 mdui-m-y-1">
-        <div class="mdui-typo mdui-center">
-            <p>如果较难查找可以按下 "CTrl+F" 以打开查询功能</p>
+    <div class="mdui-typo">
+        <div class="mdui-m-y-2 mdui-float-right">
+            <a href="./index.php"><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">返回</button></a>
         </div>
+        <div id="markdown" class="markdown"></div>
     </div>
 </div>
-<div class="mdui-container">
-    <div class="mdui-table-fluid mdui-m-y-4">
-        <table class="mdui-table mdui-table-hoverable">
-            <thead>
-                <tr>
-                    <th>章节</th>
-                    <th>名字</th>
-                    <th>进入</th>
-                </tr>
-            </thead>
-            <tbody>
-    <?PHP
-    $handle=opendir('./chapter');
-    while($dir = readdir($handle))
-    {
-        ?>
-        <tr>
-            <?PHP
-            //过滤当前文件夹和父文件
-            if($dir == '.' || $dir == '..' )
-            {
-                continue;
-            }
-            $str = str_replace('.md','',$dir);
-            ?>
-            <td><strong><?PHP echo mb_substr($str,0,5); ?></strong></td>
-            <td><?PHP echo mb_substr($str,6); ?></td>
-            <td><a href="./mathjax.php?cp=<?PHP echo $str ?>"><button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple">查阅</button></a></td>
-        </tr>
-    <?PHP
-    }
-    ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+
 <!-- 页脚版权内容 -->
 <?PHP include("../footer.html") ?>
 </body>
@@ -106,6 +93,15 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
     integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
     crossorigin="anonymous"
 ></script>
+<!-- JS -->
+<script type="text/javascript" src="../sources/js/marked.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js"></script>
+<script>
+$.get('<?php echo './chapter/'.$cp.'.md' ?>', function(response, status, xhr){
+    $("#markdown").html(marked(response));
+    });
+</script>
 </html>
 <?PHP
 mysqli_free_result($SQL);
