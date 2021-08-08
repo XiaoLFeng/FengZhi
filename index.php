@@ -104,7 +104,7 @@ $listfor = 1;
         [End] -->
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/wuli.png"/></a>
+            <a href="./Physics/index.php"><img src="<?PHP echo img() ?>sources/img/wuli.png"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">物理</div>
