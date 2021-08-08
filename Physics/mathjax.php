@@ -1,6 +1,6 @@
 <?PHP
-header('Cache-Control:no-cache,must-revalidate');
-header('Pragma:no-cache');
+header('Content-Type: text/html;charset=utf-8');
+header('Access-Control-Allow-Origin:*'); // *代表允许任何网址请求
 // 开启session
 session_start();
 // 禁用错误报告
@@ -56,10 +56,10 @@ $SQL = mysqli_query($conn,"SELECT * FROM equation_inorganic");
     };
     </script>
     <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
-</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+    </script>
 
 </head>
 <body class="mdui-theme-primary-<?php echo check_night_time_primary() ?> mdui-theme-accent-<?php echo check_night_time_accent() ?> padding-top mdui-appbar-with-toolbar mdui-drawer-body-left <?PHP echo check_night_black() ?>">
