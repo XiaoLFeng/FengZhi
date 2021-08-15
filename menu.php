@@ -181,19 +181,11 @@ function listOn($listO) {
             </ul>
         </li>
         [End] -->
-        <!-- 地理
-        <li class="mdui-collapse-item <?PHP if($listOnL == 10){echo "mdui-collapse-item-open";}?>">
-            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(10) ?>">book</i>
+        <a href="https://doc.chs.pub/FZGD/">
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons <?php listOnL(10) ?>">near_me</i>
                 <div class="mdui-list-item-content <?php listOnL(10) ?>">地理库</div>
-                <i class="mdui-collapse-item-arrow mdui-icon material-icons  <?php listOnL(10) ?>">keyboard_arrow_down</i>
-            </div>
-            <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                <a href="../Chinese/index.php">
-                    <li class="mdui-list-item mdui-ripple <?php listOn(1001) ?>">首页</li>
-                </a>
-            </ul>
-        </li>
-        [End] -->
+            </li>
+        </a>
     </ul>
 </div>

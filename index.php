@@ -160,9 +160,10 @@ $listfor = 1;
             </div>
             </div>
         </div>
+        [End] -->
         <div class="mdui-col">
             <div class="mdui-grid-tile mdui-m-a-2">
-            <a href="javascript:;"><img src="<?PHP echo img() ?>sources/img/card.webp"/></a>
+            <a href="https://doc.chs.pub/FZGD/"><img src="<?PHP echo img() ?>sources/img/dili.png"/></a>
             <div class="mdui-grid-tile-actions">
                 <div class="mdui-grid-tile-text">
                     <div class="mdui-grid-tile-title">地理</div>
@@ -171,7 +172,6 @@ $listfor = 1;
             </div>
             </div>
         </div>
-        [End] -->
     </div>
 </div>
 <!-- 页脚版权内容 -->
